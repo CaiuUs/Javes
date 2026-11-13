@@ -1,4 +1,5 @@
 import JavesMark from './JavesMark'
+import JavesWordmark from './JavesWordmark'
 
 export default function Hero() {
   return (
@@ -47,21 +48,27 @@ export default function Hero() {
         }}
       />
 
+      {/* <p> entry animation; inner <span> runs shimmer independently */}
       <p
-        className="grad-text"
         style={{
           position: 'relative',
           zIndex: 1,
-          fontFamily: 'var(--font-ui)',
-          fontSize: 11,
-          fontWeight: 500,
-          letterSpacing: '0.32em',
-          textTransform: 'uppercase',
           marginBottom: 20,
           animation: 'hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both',
         }}
       >
-        Video Marketing
+        <span
+          className="grad-text-shimmer"
+          style={{
+            fontFamily: 'var(--font-ui)',
+            fontSize: 11,
+            fontWeight: 500,
+            letterSpacing: '0.32em',
+            textTransform: 'uppercase',
+          }}
+        >
+          Video Marketing
+        </span>
       </p>
 
       <h1
@@ -69,16 +76,20 @@ export default function Hero() {
         style={{
           position: 'relative',
           zIndex: 1,
-          fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(48px, 6.5vw, 82px)',
-          fontWeight: 900,
-          letterSpacing: '-0.01em',
-          lineHeight: 0.92,
-          marginBottom: 28,
+          width: '100%',
+          maxWidth: 560,
+          margin: '0 auto 28px',
+          color: 'var(--fg)',
           animation: 'hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.18s both',
+          /* sr-only para o texto acessível; o visual vem do SVG */
+          fontSize: 0,
+          lineHeight: 0,
         }}
       >
-        JAVES
+        <span style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}>
+          JAVES
+        </span>
+        <JavesWordmark style={{ width: '100%', height: 'auto', display: 'block' }} />
       </h1>
 
       <p
