@@ -676,7 +676,7 @@ button.portfolio-card {
   padding-bottom: 96px;
 }
 
-/* Linha de cima: texto + foto do casal */
+/* Linha de cima: bloco de texto (label+título+parágrafos) + foto do casal */
 
 .qs-top {
   display: grid;
@@ -686,11 +686,21 @@ button.portfolio-card {
   margin-bottom: 72px;
 }
 
+.qs-text-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 560px;
+}
+
+/* Reduz o espaço embaixo do título quando dentro do bloco agrupado */
+.qs-title {
+  margin-bottom: 24px;
+}
+
 .qs-intro {
   font-size: 15.5px;
   color: var(--fg-muted);
   line-height: 1.82;
-  max-width: 540px;
 }
 
 .qs-intro p + p { margin-top: 16px; }
