@@ -2,16 +2,18 @@
 
 ## Stack
 
-HTML + CSS + JS puro. Sem frameworks, sem build tools, sem dependências.
+Next.js 16 · TypeScript · Tailwind CSS v4 · App Router
 
-## Arquivos
+## Arquivos principais
 
-| Arquivo | Responsabilidade |
+| Arquivo/Pasta | Responsabilidade |
 |---|---|
-| `index.html` | Estrutura e conteúdo |
-| `css/style.css` | Todo o CSS — design via custom properties |
-| `js/main.js` | Lógica de filtro do portfólio |
-| `svg/` | Logos e símbolo da marca (não editar) |
+| `app/layout.tsx` | Root layout — carrega fontes via next/font |
+| `app/page.tsx` | Página principal — monta todas as sections |
+| `app/globals.css` | Design system — `@theme` Tailwind v4 + custom properties |
+| `components/` | Header, Hero, Portfolio, Partners, TeamSection, Footer, JavesMark |
+| `public/svg/` | Logos e símbolo da marca (não editar) |
+| `public/png/` | Fotos e assets raster |
 
 ## Agentes disponíveis
 
@@ -35,7 +37,8 @@ Fluxo padrão: **usuário → commander → coder → reviewer → approver → 
 
 ## Design system
 
-Todas as decisões visuais estão nas custom properties em `css/style.css (:root)`.
-Nunca use cores ou fontes fora do sistema sem alterar o `:root` primeiro.
+Tokens em `app/globals.css` — bloco `@theme` para Tailwind v4 + `:root` para CSS vars.
+Nunca use cores ou fontes fora do sistema sem alterar esses tokens primeiro.
 
-Accent: `#C8973A` · Fundo: `#050505` · Display: Bebas Neue (H1/H2) · UI: Space Grotesk · Corpo: Inter
+Paleta: B&W puro · Fundo: `#050505` · Texto: `#FFFFFF` · Gradiente metálico: `#707070 → #FFFFFF → #707070`
+Fontes: Montserrat 900 (títulos display) · Space Grotesk (UI) · Inter (corpo)
