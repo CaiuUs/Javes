@@ -17,7 +17,7 @@ export default function Header() {
         borderColor: 'var(--border)',
       }}
     >
-      <div className="inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 20, paddingBottom: 20 }}>
+      <div className="inner site-header-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Image
           src="/svg/javes-logo-branco.svg"
           alt="JAVES Videomarketing"
@@ -61,53 +61,20 @@ export default function Header() {
             />
           </button>
 
-          <ul
-            id="main-nav"
-            className={`site-nav${open ? ' nav-open' : ''}`}
-            style={{ display: 'flex', alignItems: 'center', gap: 32, listStyle: 'none' }}
-          >
+          <ul id="main-nav" className={`site-nav${open ? ' nav-open' : ''}`}>
             {[
               { href: '#trabalhos', label: 'Trabalhos' },
               { href: '#parceiros',  label: 'Parceiros' },
               { href: '#quem-somos', label: 'Quem Somos' },
             ].map(({ href, label }) => (
               <li key={href}>
-                <Link
-                  href={href}
-                  onClick={() => setOpen(false)}
-                  style={{
-                    color: 'var(--fg-muted)',
-                    textDecoration: 'none',
-                    fontSize: 11,
-                    fontWeight: 500,
-                    letterSpacing: '0.14em',
-                    textTransform: 'uppercase',
-                    fontFamily: 'var(--font-ui)',
-                    transition: 'color 0.2s',
-                  }}
-                >
+                <Link href={href} onClick={() => setOpen(false)} className="nav-link">
                   {label}
                 </Link>
               </li>
             ))}
             <li className="nav-cta">
-              <Link
-                href="#quem-somos"
-                onClick={() => setOpen(false)}
-                style={{
-                  color: 'rgba(255,255,255,0.72)',
-                  border: '1px solid rgba(255,255,255,0.18)',
-                  padding: '7px 18px',
-                  borderRadius: 100,
-                  textDecoration: 'none',
-                  fontSize: 11,
-                  fontWeight: 500,
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  fontFamily: 'var(--font-ui)',
-                  transition: 'background 0.2s, color 0.2s',
-                }}
-              >
+              <Link href="#contato" onClick={() => setOpen(false)} className="nav-cta-link">
                 Contato
               </Link>
             </li>
