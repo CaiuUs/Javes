@@ -11,8 +11,8 @@
   --fg:          #FFFFFF;
   --fg-muted:    rgba(255, 255, 255, 0.50);
   --font-display: 'Bebas Neue', sans-serif;
-  --accent:      #C8973A;
-  --accent-hi:   #E6B245;
+  --accent:      #FFFFFF;
+  --accent-hi:   #F0F0F0;
   --grad-brand:  linear-gradient(90deg, #E8622A 0%, #F5C842 50%, #D630A8 100%);
 }
 
@@ -94,15 +94,15 @@ body {
 }
 
 .nav-cta a {
-  color: rgba(200, 151, 58, 0.9);
-  border: 1px solid rgba(200, 151, 58, 0.25);
+  color: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 7px 18px;
   border-radius: 100px;
 }
 
 .nav-cta a:hover {
-  background: rgba(200, 151, 58, 0.1);
-  color: var(--accent-hi);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--fg);
 }
 
 /* ——— NAV TOGGLE (mobile) ——— */
@@ -153,15 +153,15 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 90vh;
-  padding: 80px 24px 100px;
+  min-height: 100vh;
+  padding: 80px 24px 80px;
   overflow: hidden;
 }
 
 .hero-radial {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 55% 50% at 50% 50%, rgba(200, 151, 58, 0.055) 0%, transparent 70%);
+  background: radial-gradient(ellipse 55% 50% at 50% 50%, rgba(255, 255, 255, 0.018) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -188,7 +188,7 @@ body {
   margin-bottom: 44px;
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0 0 28px rgba(200, 151, 58, 0.22));
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.07));
   animation: mark-in 1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -200,7 +200,10 @@ body {
   font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--accent);
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
   animation: hero-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
@@ -296,6 +299,75 @@ body {
   opacity: 0.55;
 }
 
+/* ——— HERO VIDEO ——— */
+
+.hero-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 56px;
+  text-decoration: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  animation: hero-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both;
+}
+
+.hero-video:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.025);
+}
+
+.hv-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.7) 100%);
+  pointer-events: none;
+}
+
+.hv-play {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.25s, border-color 0.25s;
+}
+
+.hv-play svg { margin-left: 3px; }
+
+.hero-video:hover .hv-play {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.hv-label {
+  position: relative;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+}
+
 /* ——— SECTIONS ——— */
 
 .section-wrap {
@@ -309,7 +381,10 @@ body {
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--accent);
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 14px;
 }
 
@@ -493,7 +568,10 @@ body {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent);
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 7px;
 }
 
