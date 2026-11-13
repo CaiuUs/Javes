@@ -10,10 +10,10 @@
   --border:      rgba(255, 255, 255, 0.065);
   --fg:          #FFFFFF;
   --fg-muted:    rgba(255, 255, 255, 0.50);
-  --font-display: 'Bebas Neue', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
   --accent:      #FFFFFF;
   --accent-hi:   #F0F0F0;
-  --grad-brand:  linear-gradient(90deg, #E8622A 0%, #F5C842 50%, #D630A8 100%);
+  --grad-brand:  linear-gradient(90deg, #707070 0%, #FFFFFF 50%, #707070 100%);
 }
 
 *, *::before, *::after {
@@ -212,9 +212,9 @@ body {
   position: relative;
   z-index: 1;
   font-family: var(--font-display);
-  font-size: clamp(64px, 11vw, 120px);
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-size: clamp(48px, 6.5vw, 82px);
+  font-weight: 900;
+  letter-spacing: -0.01em;
   line-height: 0.92;
   margin-bottom: 28px;
   animation: hero-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
@@ -390,8 +390,8 @@ body {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(32px, 4.5vw, 56px);
-  font-weight: 400;
+  font-size: clamp(28px, 3.8vw, 48px);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   line-height: 1.08;
