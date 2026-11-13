@@ -1,5 +1,6 @@
 import JavesMark from './JavesMark'
 import JavesWordmark from './JavesWordmark'
+import HeroShowreel from './HeroShowreel'
 
 export default function Hero() {
   return (
@@ -35,23 +36,7 @@ export default function Hero() {
 
       <p className="hero-tagline">Histórias que conquistam mercado.</p>
 
-      {/* Video placeholder */}
-      <a
-        href="#"
-        rel="noopener"
-        aria-label="Assistir showreel no YouTube"
-        className="hero-video"
-      >
-        <div className="hero-video-vignette" aria-hidden="true" />
-
-        <span className="hv-play" aria-hidden="true">
-          <svg viewBox="0 0 18 22" fill="currentColor" aria-hidden="true">
-            <path d="M0 0L18 11L0 22V0Z" />
-          </svg>
-        </span>
-
-        <span className="hv-label" aria-hidden="true">Showreel · 2026</span>
-      </a>
+      <HeroShowreel />
     </section>
   )
 }

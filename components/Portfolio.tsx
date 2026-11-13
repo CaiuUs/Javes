@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import JavesMark from './JavesMark'
+import VideoLightbox from './VideoLightbox'
 
 type Category = '*' | 'casamento' | 'corporativo' | 'comercial'
 
@@ -12,17 +13,29 @@ const FILTERS: { label: string; value: Category }[] = [
   { label: 'Comercial',   value: 'comercial' },
 ]
 
-const CARDS: { title: string; category: Category; pill: string; bg: string; href: string }[] = [
-  { title: 'Fernanda & Rafael',           category: 'casamento',   pill: 'Casamento',   bg: 'thumb-cas-1', href: '#' },
-  { title: 'Ana & Pedro',                 category: 'casamento',   pill: 'Casamento',   bg: 'thumb-cas-2', href: '#' },
-  { title: 'Horizonte Construtora',       category: 'corporativo', pill: 'Corporativo', bg: 'thumb-cor-1', href: '#' },
-  { title: 'Nexus Tecnologia',            category: 'corporativo', pill: 'Corporativo', bg: 'thumb-cor-2', href: '#' },
-  { title: 'Boutique Mar — Campanha Verão', category: 'comercial', pill: 'Comercial',   bg: 'thumb-com-1', href: '#' },
-  { title: 'Clínica Prime Estética',      category: 'comercial',   pill: 'Comercial',   bg: 'thumb-com-2', href: '#' },
+/**
+ * IMPORTANTE: troque o youtubeId de cada card pelo ID real do vídeo no YouTube.
+ * Ex: em https://www.youtube.com/watch?v=dQw4w9WgXcQ → youtubeId: 'dQw4w9WgXcQ'
+ */
+interface Card {
+  title: string
+  category: Category
+  pill: string
+  youtubeId: string
+}
+
+const CARDS: Card[] = [
+  { title: 'Fernanda & Rafael',             category: 'casamento',   pill: 'Casamento',   youtubeId: 'dQw4w9WgXcQ' },
+  { title: 'Ana & Pedro',                   category: 'casamento',   pill: 'Casamento',   youtubeId: 'dQw4w9WgXcQ' },
+  { title: 'Horizonte Construtora',         category: 'corporativo', pill: 'Corporativo', youtubeId: 'dQw4w9WgXcQ' },
+  { title: 'Nexus Tecnologia',              category: 'corporativo', pill: 'Corporativo', youtubeId: 'dQw4w9WgXcQ' },
+  { title: 'Boutique Mar — Campanha Verão', category: 'comercial',   pill: 'Comercial',   youtubeId: 'dQw4w9WgXcQ' },
+  { title: 'Clínica Prime Estética',        category: 'comercial',   pill: 'Comercial',   youtubeId: 'dQw4w9WgXcQ' },
 ]
 
 export default function Portfolio() {
   const [active, setActive] = useState<Category>('*')
+  const [videoId, setVideoId] = useState<string | null>(null)
   const visible = CARDS.filter((c) => active === '*' || c.category === active)
 
   return (
@@ -48,15 +61,22 @@ export default function Portfolio() {
 
         <div className="portfolio-grid" id="portfolio-grid">
           {visible.map((card) => (
-            <a
+            <button
+              type="button"
               key={card.title}
-              href={card.href}
               className="portfolio-card"
               aria-label={`Assistir: ${card.title}`}
               data-category={card.category}
+              onClick={() => setVideoId(card.youtubeId)}
             >
               <div className="card-thumb">
-                <div className={`thumb-bg ${card.bg}`} />
+                <img
+                  className="thumb-img"
+                  src={`https://img.youtube.com/vi/${card.youtubeId}/maxresdefault.jpg`}
+                  alt=""
+                  loading="lazy"
+                  aria-hidden="true"
+                />
                 <div className="thumb-grain" aria-hidden="true" />
                 <div className="thumb-watermark" aria-hidden="true">
                   <JavesMark />
@@ -70,10 +90,12 @@ export default function Portfolio() {
                 <p className="card-cat grad-text">{card.pill}</p>
                 <h3 className="card-title">{card.title}</h3>
               </div>
-            </a>
+            </button>
           ))}
         </div>
       </div>
+
+      <VideoLightbox videoId={videoId} onClose={() => setVideoId(null)} />
     </section>
   )
 }
