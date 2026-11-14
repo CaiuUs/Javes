@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const LINKS = [
   { href: 'https://instagram.com/javes.mov', label: 'Instagram', external: true },
-  { href: 'https://youtube.com',             label: 'YouTube',   external: true },
+  { href: 'https://youtube.com/@javesmov',             label: 'YouTube',   external: true },
   { href: '#quem-somos',                     label: 'Contato',   external: false },
 ]
 

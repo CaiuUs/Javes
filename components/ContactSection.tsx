@@ -5,7 +5,7 @@
  * no formato internacional sem símbolos: ex. '5511999999999'
  * (55 = Brasil, 11 = DDD, resto = número).
  */
-const WHATSAPP_PHONE = '5511999999999'
+const WHATSAPP_PHONE = '559484297374'
 const WHATSAPP_MESSAGE = 'Quero fazer um orçamento'
 
 export default function ContactSection() {
