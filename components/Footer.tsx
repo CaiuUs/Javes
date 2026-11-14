@@ -31,7 +31,7 @@ export default function Footer() {
           ))}
         </ul>
 
-        <p className="footer-copy">© 2026 JAVES Videomarketing</p>
+        <p className="footer-copy">© 2026 @JAVES VIDEOMARKETING</p>
       </div>
     </footer>
   )
