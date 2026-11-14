@@ -6,7 +6,7 @@ import { useState } from 'react'
  * IMPORTANTE: troque SHOWREEL_ID pelo ID do vídeo do showreel no YouTube.
  * Ex: em https://www.youtube.com/watch?v=dQw4w9WgXcQ o ID é "dQw4w9WgXcQ"
  */
-const SHOWREEL_ID = 'CKByXAnNgX0'
+const SHOWREEL_ID = 'tKN6UkhNW0E'
 
 export default function HeroShowreel() {
   const [playing, setPlaying] = useState(false)
